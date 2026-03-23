@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bali Diaries</title>
 
 <style>
@@ -11,41 +12,61 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   font-family: -apple-system, sans-serif;
 }
 
+/* BOOK */
 .book {
-  width: 340px;
-  height: 440px;
+  width: 90vw;
+  max-width: 320px;
+  height: 420px;
   position: relative;
-  perspective: 1500px;
+  perspective: 1200px;
 }
 
+/* PAGE */
 .page {
   width: 100%;
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
   transform-origin: left;
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
   cursor: pointer;
 }
 
+/* FRONT + BACK */
 .front, .back {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 18px;
-  overflow: hidden;
+  border-radius: 16px;
   backface-visibility: hidden;
+  overflow: hidden;
 }
 
+/* FRONT */
 .front {
   background: white;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
 }
 
+/* 🔥 IMAGE SMALL FIX */
+.front img {
+  width: 100%;
+  height: 75%;   /* 👈 reduced size */
+  object-fit: contain;
+  border-radius: 12px;
+  background: black;
+}
+
+/* BACK */
 .back {
   transform: rotateY(180deg);
   background: linear-gradient(to bottom, #ffe3e3, #ffd6a5);
@@ -53,40 +74,29 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 25px;
-  font-size: 16px;
+  padding: 18px;
+  font-size: 14px;
   color: #5a3e36;
 }
 
-/* Flip */
+/* FLIP */
 .page.flipped {
   transform: rotateY(-180deg);
 }
 
-/* Move flipped page behind */
 .page.done {
   z-index: 0 !important;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* CAPTION BELOW IMAGE */
 .caption {
-  position: absolute;
-  bottom: 20px;
-  left: 15px;
-  right: 15px;
-  color: white;
-  font-size: 14px;
-  background: rgba(0,0,0,0.4);
-  padding: 8px;
-  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
 }
 
-/* Title */
+/* TITLE */
 .title {
   display: flex;
   justify-content: center;
@@ -95,21 +105,21 @@ img {
   text-align: center;
   background: linear-gradient(to bottom, #fbc2eb, #a6c1ee);
   color: white;
+  height: 100%;
 }
 
-/* Final */
+/* FINAL */
 .final {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  font-size: 20px;
-  color: #4a2c2a;
+  font-size: 16px;
   background: linear-gradient(to bottom right, #ffd6e0, #fff1eb);
 }
 
-/* Stack order */
+/* STACK */
 .page:nth-child(1) { z-index: 8; }
 .page:nth-child(2) { z-index: 7; }
 .page:nth-child(3) { z-index: 6; }
@@ -125,67 +135,60 @@ img {
 
 <div class="book">
 
-<!-- TITLE -->
 <div class="page">
   <div class="front title">
-    <h1>BALI DIARIES</h1>
+    <h2>BALI DIARIES</h2>
     <p>A few moments I wish to etch in my memory 🙂</p>
   </div>
   <div class="back">If this is what Monday blues look like… I need them every day 🙂</div>
 </div>
 
-<!-- PHOTO 1 -->
 <div class="page">
   <div class="front">
     <img src="photo1.jpeg">
     <div class="caption">That blue dress… yeah, I’m still not over it 🙂</div>
   </div>
-  <div class="back">It’s not just a smile… it’s the way you completely slay without even trying 😌</div>
+  <div class="back">It’s not just a smile… it’s the way you completely slay 😌</div>
 </div>
 
-<!-- PHOTO 2 -->
 <div class="page">
   <div class="front">
     <img src="photo2.jpeg">
     <div class="caption">And that smile… makes it even harder 😌</div>
   </div>
-  <div class="back">Up there… and somehow still the most beautiful thing in the view 🙂</div>
+  <div class="back">Up there… still the most beautiful thing in the view 🙂</div>
 </div>
 
-<!-- PHOTO 3 -->
 <div class="page">
   <div class="front">
     <img src="photo3.jpeg">
-    <div class="caption">I thought it would be the view that stays… but somehow, it’s you 🙂</div>
+    <div class="caption">I thought it was the view… but it’s you 🙂</div>
   </div>
-  <div class="back">I was genuinely hoping that swing might somehow bring you near to me 😏</div>
+  <div class="back">I was hoping that swing brings you to Bangalore 😏</div>
 </div>
 
-<!-- PHOTO 4 (UPDATED WITH CAPTION) -->
 <div class="page">
   <div class="front">
     <img src="photo4.jpg">
-    <div class="caption">Somewhere between the sky and the land… an angel, effortlessly 🙂</div>
+    <div class="caption">Somewhere between sky and land… an angel 🙂</div>
   </div>
-  <div class="back">Why your cute smile puts me in a trance 🙂</div>
+  <div class="back">You didn’t feel real in that moment 🙂</div>
 </div>
 
-<!-- PHOTO 5 -->
 <div class="page">
   <div class="front">
     <img src="photo5.jpeg">
-    <div class="caption">This one… felt like a moment worth keeping 🙂</div>
+    <div class="caption">A moment worth keeping 🙂</div>
   </div>
-  <div class="back">Some moments don’t need anything extra… they’re already perfect 🙂</div>
+  <div class="back">Some moments are already perfect 🙂</div>
 </div>
 
-<!-- FINAL -->
 <div class="page">
   <div class="front final">
     Maybe it wasn’t the place…<br><br>
     maybe it was always you 💖
   </div>
-  <div class="back">And maybe… that’s exactly what made it all special 🙂</div>
+  <div class="back">And that’s what made it special 🙂</div>
 </div>
 
 </div>
@@ -193,13 +196,11 @@ img {
 <script>
 document.querySelectorAll(".page").forEach(page => {
   page.addEventListener("click", () => {
-
     page.classList.add("flipped");
 
     setTimeout(() => {
       page.classList.add("done");
-    }, 900);
-
+    }, 800);
   });
 });
 </script>
