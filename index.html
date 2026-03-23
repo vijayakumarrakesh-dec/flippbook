@@ -16,7 +16,6 @@ body {
   font-family: -apple-system, sans-serif;
 }
 
-/* BOOK */
 .book {
   width: 90vw;
   max-width: 320px;
@@ -25,7 +24,6 @@ body {
   perspective: 1200px;
 }
 
-/* PAGE */
 .page {
   width: 100%;
   height: 100%;
@@ -36,7 +34,6 @@ body {
   cursor: pointer;
 }
 
-/* FRONT + BACK */
 .front, .back {
   position: absolute;
   width: 100%;
@@ -53,17 +50,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 15px;
 }
 
-/* 🔥 IMAGE SMALL FIX */
-.front img {
+/* 🔥 RIGHT ALIGN FIX */
+.image-container {
   width: 100%;
-  height: 75%;   /* 👈 reduced size */
-  object-fit: contain;
+  display: flex;
+  justify-content: flex-end; /* 👈 push image right */
+}
+
+.image-container img {
+  width: 80%;       /* 👈 smaller image */
+  height: 260px;
+  object-fit: cover;
   border-radius: 12px;
-  background: black;
 }
 
 /* BACK */
@@ -88,7 +89,7 @@ body {
   z-index: 0 !important;
 }
 
-/* CAPTION BELOW IMAGE */
+/* CAPTION */
 .caption {
   margin-top: 10px;
   font-size: 13px;
@@ -145,7 +146,9 @@ body {
 
 <div class="page">
   <div class="front">
-    <img src="photo1.jpeg">
+    <div class="image-container">
+      <img src="photo1.jpeg">
+    </div>
     <div class="caption">That blue dress… yeah, I’m still not over it 🙂</div>
   </div>
   <div class="back">It’s not just a smile… it’s the way you completely slay 😌</div>
@@ -153,7 +156,9 @@ body {
 
 <div class="page">
   <div class="front">
-    <img src="photo2.jpeg">
+    <div class="image-container">
+      <img src="photo2.jpeg">
+    </div>
     <div class="caption">And that smile… makes it even harder 😌</div>
   </div>
   <div class="back">Up there… still the most beautiful thing in the view 🙂</div>
@@ -161,7 +166,9 @@ body {
 
 <div class="page">
   <div class="front">
-    <img src="photo3.jpeg">
+    <div class="image-container">
+      <img src="photo3.jpeg">
+    </div>
     <div class="caption">I thought it was the view… but it’s you 🙂</div>
   </div>
   <div class="back">I was hoping that swing brings you to Bangalore 😏</div>
@@ -169,7 +176,9 @@ body {
 
 <div class="page">
   <div class="front">
-    <img src="photo4.jpg">
+    <div class="image-container">
+      <img src="photo4.jpeg">
+    </div>
     <div class="caption">Somewhere between sky and land… an angel 🙂</div>
   </div>
   <div class="back">You didn’t feel real in that moment 🙂</div>
@@ -177,7 +186,9 @@ body {
 
 <div class="page">
   <div class="front">
-    <img src="photo5.jpeg">
+    <div class="image-container">
+      <img src="photo5.jpeg">
+    </div>
     <div class="caption">A moment worth keeping 🙂</div>
   </div>
   <div class="back">Some moments are already perfect 🙂</div>
